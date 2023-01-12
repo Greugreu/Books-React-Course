@@ -4,17 +4,17 @@ import BooksContext from "../context/books";
 
 function BookShow ({book}) {
     const [showEdit, setShowEdit] = useState(false)
-    const { editBook, deleteBook } = useContext(BooksContext)
+    const { deleteBookById } = useContext(BooksContext)
+
     const handleDelete = () => {
-        deleteBook(book.id);
+        deleteBookById(book.id);
     };
     const handleEdit = () => {
         setShowEdit(!showEdit);
     };
 
-    const handleSubmit = (id, newTitle) => {
+    const handleSubmit = () => {
         setShowEdit(false);
-        editBook(id, newTitle);
     };
 
     let content = <h3>{book.title}</h3>;
